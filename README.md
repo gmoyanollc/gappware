@@ -3,7 +3,8 @@
 <p>  
 XSL functional programming and recursion may be daunting for many.  At times, constraining oneself to XSL 
 is much like using a flat-head screwdriver to screw a Phillips fastener.   It's possible, but difficult.  
-Using XSL for string manipulation is an example where many times recursion gets in the way of coding a simple task using a non-functional programming language.  
+Using XSL for string manipulation is an example where many times recursion gets in the way of coding 
+a simple task with a non-functional programming language.  
 Caveats such as recursion often distance programmers from XSL altogether.  
 <p>Rather than forego powerful XSL transformation capabilities altogether, a remote service can perform
 a function and return a result for an XSL transformation or validation.</p>
