@@ -28,7 +28,9 @@ a function and return a result for an XSL transformation or validation.</p>
 
 <h2>Deploy an instance of the gXslTransform Service</h2>
 
-gXslTransform is implemented as an NodeJS HTTP service.  Simply enter the following command to instantiate the service from a working folder:
+gXslTransform is implemented as an NodeJS HTTP service.  
+
+Simply enter the following command to instantiate the service from a working folder:
 
 	node server.js
 
@@ -37,6 +39,8 @@ That's it -- the beauty of NodeJS!
 Now open your favorite web browser and enter the URL;
 
 	http://localhost:5555
+	
+The included node.exe and module binary files are compiled for Microsoft Windows.  Linux users preferring package managers, see https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager .  
 
 <h2>Example XSL Transformation</h2>
 
