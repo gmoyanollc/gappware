@@ -40,7 +40,7 @@ Now open your favorite web browser and enter the URL;
 
 	http://localhost:5555
 	
-The included node.exe and module binary files are compiled for Microsoft Windows.  Linux users preferring package managers, see https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager .  
+The included node.exe file is compiled for Microsoft Windows.  Linux users preferring package managers, see https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager .  
 
 <h2>Example XSL Transformation</h2>
 
