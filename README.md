@@ -25,3 +25,24 @@ a function and return a result for an XSL transformation or validation.</p>
 &lt;response&gt;lowerCamelCase&lt;/response&gt;
   
 </pre>
+
+<h2>Deploy an instance of the gXslTransform Service</h2>
+
+gXslTransform is implemented as an NodeJS HTTP service.  Simply enter the following command to instantiate the service from a working folder:
+
+	node server.js
+
+That's it -- the beauty of NodeJS!
+
+Now open your favorite web browser and enter the URL;
+
+  http://localhost:5555
+
+<h2>Example XSL Transformation</h2>
+
+The example provided includes an XSL Stylesheet file, convertCase.xsl, and an XML Schema file, EAFv2.8.xsd.  Also provided is an example output file, OutputEAFv2.8.xsd, for expected results. 
+
+The convertCase.xsl file drives the transformation process using values contained in variables declared at the top of the file.     The variable values may be modified to reuse the convertCase.xsl file to drive transformations for XML Schema files having different requirements.
+
+The EAFv2.8.xsd file contains XML Element and Attribute Names described using UPPERCASE characters delimited by the underscore character ('_').
+
