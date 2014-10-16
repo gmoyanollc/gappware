@@ -6,11 +6,17 @@
     xmlns:gxt="http://www.gappware.com/gxsltransform" gxt:version="1.00" version="2.0">
     <xsl:output method="xml" indent="no"/>
 
-    <xsl:variable name="INPUT_DOCUMENT_XML_SCHEMA_PREFIX" select="'xsd'"/>
+    <xsl:variable name="INPUT_DOCUMENT_XML_SCHEMA_PREFIX_XS" select="'xs'"/>
+    <xsl:variable name="INPUT_DOCUMENT_XML_SCHEMA_PREFIX_XSD" select="'xsd'"/>
+    <!-- The following is for the input document prefix name, if one exists. 
+        An input document may declare it's namespace using the XML statement 'xmlns='  
+        and a prefix that matches the namespace value using 'xmlns:' + <prefix-name> + '='.  -->
     <xsl:variable name="INPUT_DOCUMENT_PREFIX" select="''"/>
     <xsl:variable name="CHARACTER_OR_REGULAR_EXPRESSION_WORD_DELIMITER" select="'_'"/>
     <xsl:variable name="REMOTE_SERVICE_LOWER_CAMEL_CASE"
-        >http://gappware-gmoyano.rhcloud.com/gxslservice/string/lowercamelcase</xsl:variable>
+        >http://127.0.0.1:5555/gxslservice/string/lowercamelcase</xsl:variable>
+    <!--<xsl:variable name="REMOTE_SERVICE_LOWER_CAMEL_CASE"
+        >http://gappware-gmoyano.rhcloud.com/gxslservice/string/lowercamelcase</xsl:variable>-->
 
     <!-- The following function originally only converted to CamelCase.  It was published by http://www.metaphoricalweb.org .
          Function was refactored and conversion to lowerCamelCase was added by George Moyano, Oct 2014.
@@ -80,12 +86,14 @@
     <xsl:template match="@name">
         <xsl:attribute name="name">
             <xsl:choose>
-                <xsl:when test="name(..)=fn:concat($INPUT_DOCUMENT_XML_SCHEMA_PREFIX, ':element')">
+                <xsl:when test="name(..)=fn:concat($INPUT_DOCUMENT_XML_SCHEMA_PREFIX_XS, ':element') 
+                        or fn:concat($INPUT_DOCUMENT_XML_SCHEMA_PREFIX_XSD, ':element')">
                     <xsl:value-of
                         select="str:title-case(., 'CamelCase', $CHARACTER_OR_REGULAR_EXPRESSION_WORD_DELIMITER)"
                     />
                 </xsl:when>
-                <xsl:when test="name(..)=fn:concat($INPUT_DOCUMENT_XML_SCHEMA_PREFIX, ':attribute')">
+                <xsl:when test="name(..)=fn:concat($INPUT_DOCUMENT_XML_SCHEMA_PREFIX_XS, ':attribute')
+                        or fn:concat($INPUT_DOCUMENT_XML_SCHEMA_PREFIX_XSD, ':element')">
                     <xsl:value-of
                         select="str:title-case(., 'lowerCamelCase', $CHARACTER_OR_REGULAR_EXPRESSION_WORD_DELIMITER)"
                     />
