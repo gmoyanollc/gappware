@@ -40,7 +40,15 @@ Now open your favorite web browser and enter the URL;
 
 	http://localhost:5555
 	
-The included node.exe file is compiled for Microsoft Windows.  Linux users preferring package managers, see https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager .  
+The included node.exe file is compiled for Microsoft Windows 64-bit.  On Windows 32-bit, running the provided node.exe file may throw an "Access Denied" the error.  To correct, simply download and replace the provided node.exe file with the 32-bit version at http://nodejs.org/download . 
+
+Windows 32-bit and others may download Node.js from 
+
+	http://nodejs.org/download
+	
+Linux users preferring package managers, see 
+
+	https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
 <h2>Example XSL Transformation</h2>
 
