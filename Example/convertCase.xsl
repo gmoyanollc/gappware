@@ -99,9 +99,6 @@
                     />
                 </xsl:when>
                 <xsl:otherwise>
-<!--                    <xsl:value-of
-                        select="str:title-case(., '', $CHARACTER_OR_REGULAR_EXPRESSION_WORD_DELIMITER)"
-                    />-->
                     <xsl:value-of
                         select="."
                     />
