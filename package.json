@@ -1,0 +1,29 @@
+{
+  "name": "xsl-http-service",
+  "version": "1.0.0",
+  "description": "An example HTTP service for XSL transformation and XML validation remote requests.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^3.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gmoyanollc/xsl-http-service.git"
+  },
+  "keywords": [
+    "XSL",
+    "XML",
+    "HTTP"
+  ],
+  "author": "[George Moyano] (https://onename.com/gmoyano)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gmoyanollc/xsl-http-service/issues"
+  },
+  "homepage": "https://github.com/gmoyanollc/xsl-http-service#readme"
+}
