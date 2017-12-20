@@ -1,58 +1,48 @@
-<h1>Welcome to gXslService</h1>
-<p>gXslService provides capabilities accessible by XSL transformations and validations.</p>
-<p>  
-XSL functional programming and recursion may be daunting at times.  And, sticking with XSL may not be the best fit for certain tasks.</p>
-<p>A good example is string manipulation.  String manipulation is a 
-simple, basic task for most non-functional programming languages.  But, this task is a pain with XSL when recursion is necessary.</p>
-<p>Caveats such as recursion often distance programmers from XSL altogether.  
-However, XSL may be tamed with the help of a remote service.  XSL has the capability to request a remote service for a result during the XSL transformation or validation.</p>
-<h2>Services Available</h2>
-  <h3 id="lowerCamelCase">Convert_A_String to lowerCamelCase</h3>
-  <p>Syntax: "string=" + ValueToConvert + "&delimiter=" + CharacterOrRegularExpressionWordDelimiter</p>
-              <h4>Example:</h4>
-              <p>  request: 
-                <a id='aLowerCamelCaseRequest' href="/gxslservice/string/lowercamelcase?string=LOWER_CAMEL_CASE&delimiter=_" target="_blank">
-                  <code id='codeLowerCamelCaseRequest'>
-                    http://gappware-gmoyano.rhcloud.com/gxslservice/string/lowercamelcase?string=LOWER_CAMEL_CASE&delimiter=_ 
-                  </code>
-                </a>
-              </p>
-              <p>  response: </p>
-<pre>
-&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;response&gt;lowerCamelCase&lt;/response&gt;
-  
-</pre>
+**xsl-http-service** is an example service that demonstrates XSL transformation and XML validation remote requests.
+ 
+Remote requests may be helpful during XSL functional programming and recursive processing.  At times XSL becomes daunting because it may not be the best tool for certain tasks.
 
-<h2>Deploy an instance of the gXslTransform Service</h2>
+A good example is string manipulation.  String manipulation is a simple, basic task for most non-functional programming languages.  But, this task can be painful to implement solely with XSL.
 
-gXslTransform is implemented as an NodeJS HTTP service.  
+For example, let's say we have string value `LOWER_CAMEL_CASE` that requires transformation to __lowerCamelCase__ format. 
 
-Simply enter the following command to instantiate the service from a working folder:
+For a remote request in XSL:
 
-	node server.js
+```
+  <xsl:value-of select="fn:doc(
+  http://127.0.0.1:5555/xsl-http-service/string/lowercamelcase?string=LOWER_CAMEL_CASE&delimiter=_)
+```
 
-That's it -- the beauty of NodeJS!
+The service response is:
 
-Now open your favorite web browser and enter the URL;
+```
+  <?xml version="1.0" encoding="utf-8"?>
+  <response>lowerCamelCase</response>
+```
 
-	http://localhost:5555
-	
-The included node.exe file is compiled for Microsoft Windows 64-bit.  On Windows 32-bit, running the provided node.exe file may throw an "Access Denied" the error.  To correct, simply download and replace the provided node.exe file with the 32-bit version at http://nodejs.org/download . 
+# Getting Started
 
-Windows 32-bit and others may download Node.js from 
+## Requirements
 
-	http://nodejs.org/download
-	
-Linux users preferring package managers, see 
+  * NodeJS
+  * NodeJS Package Manager (NPM)
 
-	https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
+1. `git clone` or copy files to an empty project folder.
 
-<h2>Example XSL Transformation</h2>
+2. Open a terminal session in the project folder.
 
-The example folder includes convertCase.xsl and EAFv2.8.xsd.  Also provided is an example output file, OutputEAFv2.8.xsd, containing expected results. 
+3. Enter `npm install` to install dependencies.
 
-The convertCase.xsl file drives the transformation process using values contained in variables declared at the top of the file.  The variable values may be modified to reuse the convertCase.xsl file to drive transformations for XML Schema files having different requirements.
+4. Enter `node server.js` to instantiate the http service.
 
-The EAFv2.8.xsd file contains XML Element and Attribute Names described using UPPERCASE characters, delimited by the underscore character ('_').
+5. Open a web browser.
 
+6. Enter the URL `http://localhost:5555`.
+
+# Example XSL Transformation
+
+The file `convertCase.xsl` is included as an example XSL implementation. Its instructions are for XML Schema (XSD) files that have XML Element and Attribute Names described in UPPERCASE characters and words delimited by an underscore character ('_').  
+
+The file `EAFv2.8.xsd` is provided as an example XML Schema file.  
+
+The file `OutputEAFv2.8.xsd` is an example result from the transformation. 
